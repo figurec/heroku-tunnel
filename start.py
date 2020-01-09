@@ -5,11 +5,15 @@ import sys
 import os
 
 log.startLogging(sys.stdout)
- 
+
+
 class ProxyFactory(http.HTTPFactory):
     protocol = proxy.Proxy
-port=5000
-if os.environ['PORT']:
- port=os.environ['PORT']
+
+
+port = 5000
+if os.environ.get('PORT'):
+    port = os.environ.get('PORT')
+
 reactor.listenTCP(port, ProxyFactory())
 reactor.run()
