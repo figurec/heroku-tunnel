@@ -8,7 +8,7 @@ log.startLogging(sys.stdout)
  
 class ProxyFactory(http.HTTPFactory):
     protocol = proxy.Proxy
-port=8080
+port=5000
 if os.environ['PORT']:
  port=os.environ['PORT']
 reactor.listenTCP(port, ProxyFactory())
